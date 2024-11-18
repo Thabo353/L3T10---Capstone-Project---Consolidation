@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Candidate Website{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Vote for policy of your choice</h1>
+    <p class="lead">Learn more about policies below.</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg"href="{{ learn_more_redirect }}" class="btn btn-primary">Learn More</a>
+    <p>{{ candidate.bio }}</p>
+</div>
+
+{% for candidate in candidates %}
+        <div class="candidate mb-4">
+            <h2>{{ candidate.name }}</h2>
+            <p class="lead">{{ candidate.campaign_slogan }}</p>
+            <p>{{ candidate.bio }}</p>
+        </div>
+    {% empty %}
+        <p>No candidates available at the moment.</p>
+    {% endfor %}
+{% endblock %}
+
+

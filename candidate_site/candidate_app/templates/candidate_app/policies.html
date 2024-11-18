@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Policies for {{ candidate.name }}{% endblock %}
+
+{% block content %}
+    <h1>Policies for {{ candidate.name }}</h1>
+    <p>{{ candidate.bio }}</p>
+    <ul>
+        {% for policy in policies %}
+            <li>
+                <h3>{{ policy.title }}</h3>
+                <p>{{ policy.content }}</p>
+            </li>
+        {% empty %}
+            <p>No policies available for this candidate.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
