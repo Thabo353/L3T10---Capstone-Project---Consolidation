@@ -14,22 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LogoutView  # Import Django's built-in logout view
 from . import views
-from .views import register, user_login
 
 app_name = 'candidate_app'
 
-# URL patterns for the main app
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    
-    # User authenticatioN
-    path('register/', register, name='register'), 
-    path('login/', auth_views.LoginView.as_view(template_name='candidate_app/login.html'), name='login'),  
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'), 
     path('', views.home_view, name='home'),
-    path('policies/<int:candidate_id>/', views.policies, name='policies'),
+    path('register/', views.register, name='register'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', views.logout_view, name='logout'), 
+    path('candidates/', views.candidate_list, name='candidate_list'),
+    #path('policies/<int:candidate_id>/', views.policies, name='policies'), To implement later
+    #path('learn-more/', views.learn_more, name='learn_more'), To implement later
+    path('vote/<int:candidate_id>/', views.vote, name='vote'),
 ]

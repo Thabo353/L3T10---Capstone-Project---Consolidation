@@ -13,13 +13,23 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'candidate_app:login' %}">Login</a>
+            <ul class="navbar-nav ml-auto">                
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'candidate_app:register' %}">Register</a>
+                    <a class="nav-link" href="{% url 'candidate_app:candidate_list' %}">Candidates</a>
                 </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidate_app:logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidate_app:login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'candidate_app:register' %}">Register</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

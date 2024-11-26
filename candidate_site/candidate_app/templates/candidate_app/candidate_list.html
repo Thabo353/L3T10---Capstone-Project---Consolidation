@@ -1,0 +1,9 @@
+{% if message %}
+    <p>{{ message }}</p>
+{% else %}
+    <ul>
+        {% for candidate in candidates %}
+            <li>{{ candidate.name }}: {{ candidate.description }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

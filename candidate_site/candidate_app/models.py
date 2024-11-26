@@ -7,11 +7,14 @@ class Candidate(models.Model):
     Attributes:
         name (str): The candidate's name, with a maximum length of 100 characters.
         bio (str): A detailed biography of the candidate.
-        campaign_slogan (str): The candidate's campaign slogan, up to 255 characters.
+        slogan (str): The candidate's campaign slogan, up to 255 characters.
+        description (str): A short description of the candidate.
     """
     name = models.CharField(max_length=100)
+    slogan = models.CharField(max_length=255)
     bio = models.TextField()
-    campaign_slogan = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, blank=True, null=True)  
+    votes = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         """
@@ -32,9 +35,10 @@ class Policy(models.Model):
         content (str): The content or details of the policy.
         author (Candidate): A foreign key referencing the candidate who authored the policy.
     """
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    author = models.ForeignKey(Candidate, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    author = models.ForeignKey(Candidate, on_delete=models.CASCADE, related_name='policies')
+    votes = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         """
@@ -44,13 +48,3 @@ class Policy(models.Model):
             str: The title of the policy.
         """
         return self.title
-    
-food_safety_policy = Policy(
-    title="Food Safety and Quality Assurance",
-    content="""
-        We are committed to maintaining the highest standards of food safety and quality throughout 
-        our supply chain. All produce undergoes rigorous testing and complies with local and 
-        international safety regulations to ensure that consumers receive the freshest, safest products.
-    """,
-    
-)
