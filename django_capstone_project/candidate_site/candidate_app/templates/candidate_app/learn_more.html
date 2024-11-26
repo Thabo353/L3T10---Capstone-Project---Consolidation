@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More</title>
+</head>
+<body>
+    <h1>Welcome to the Candidate Voting System</h1>
+    <p>To cast your vote, you need to be logged in.</p>
+    <button onclick="location.href='{% url 'candidate_app:login' %}'">Login</button>
+    <button onclick="location.href='{% url 'candidate_app:register' %}'">Register</button>
+</body>
+</html>
