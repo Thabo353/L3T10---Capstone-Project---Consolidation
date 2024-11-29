@@ -15,7 +15,11 @@ This is the `candidate_app`, a Django-based project for managing candidates, use
 - Start the server: 
    python manage.py runserver
 
-- Create superuser and password then login.
+- Create superuser and password.
+
+- Do a local run and login.
+   http://localhost:8000
+
 - Register your candidates and also amend policies.
 
 - Strat building the image:
@@ -25,17 +29,12 @@ This is the `candidate_app`, a Django-based project for managing candidates, use
    docker run -p 8000:8000 thabokganyago353/candidate_app:latest
 
 
-## **Local run** 
-- Locally you need to run:
-   http://localhost:8000
-
-
 ## **Features** 
 - User registration and login/logout functionality.
 - Display a list of candidates.
 - Authenticated users can vote for candidates.
 - Policies view (to be implemented). 
-
+- Lear more (to be implemented)
 
 ### **Requirements** 
 - Docker installed on your system.
