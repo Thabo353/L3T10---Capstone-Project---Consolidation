@@ -1,5 +1,7 @@
 import os
 import sys
+import django
+
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -36,4 +38,6 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 
-sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(0, os.path.abspath('../../candidate_site'))
+os.environ['DJANGO_SETTINGS_MODULE'] = "candidate_site.settings"
+django.setup()
