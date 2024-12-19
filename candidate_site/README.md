@@ -10,6 +10,18 @@ This is the `candidate_app`, a Django-based project for managing candidates, use
 - Navigate to the project directory:
    cd candidate_app
 
+- Create visual environment
+On Windows:
+   python -m venv venv
+   venv\Scripts\activate
+
+On macOS/Linux: 
+   python3 -m venv venv
+   source venv/bin/activate
+
+- Install Dependencies:
+   pip install -r requirements.txt                  
+
 - 1st run python manage.py makemigrations into candidate_app and run python manage.py migrate.
 
 - Start the server: 
