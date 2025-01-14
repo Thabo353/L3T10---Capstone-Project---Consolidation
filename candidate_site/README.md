@@ -10,7 +10,7 @@ This is the `candidate_app`, a Django-based project for managing candidates, use
 - Navigate to the project directory:
    cd candidate_app
 
-- Create visual environment
+- Create visual environment:
    ```bash
 On Windows:
    python -m venv venv
