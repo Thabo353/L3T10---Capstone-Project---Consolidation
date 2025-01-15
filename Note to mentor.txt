@@ -1,0 +1,4 @@
+Please note, this docs folder has been deleted and recreated.
+The 1st one had separation source file then after choosing "n" source folder never came. I nologer know what to do as I had class and followed the instruction to solve this issue.
+
+Thank you!
